@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const sequelize = new Sequelize(
-  "my_db",
+  process.env.AWS_RDS_DB_NAME as string,
   process.env.AWS_RDS_USERNAME as string,
   process.env.AWS_RDS_PASSWORD,
   {
@@ -14,7 +14,7 @@ const sequelize = new Sequelize(
   }
 );
 
-class Connection {
+class DatabaseConnection {
   public async execute(): Promise<void> {
     try {
       await sequelize.authenticate();
@@ -25,4 +25,4 @@ class Connection {
   }
 }
 
-export default new Connection();
+export default new DatabaseConnection();
