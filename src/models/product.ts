@@ -7,7 +7,7 @@ const userModel = sequelize.define("User", {
   title: { type: DataTypes.STRING, allowNull: false },
   description: { type: DataTypes.STRING, allowNull: false },
   img: { type: DataTypes.STRING, allowNull: false },
-  categories: {
+  category: {
     type: DataTypes.ENUM(
       "sneakers",
       "accessories",
@@ -19,5 +19,5 @@ const userModel = sequelize.define("User", {
   },
   size: { type: DataTypes.STRING },
   color: { type: DataTypes.STRING },
-  price: { type: DataTypes.DECIMAL(6, 2), allowNull: false },
+  price: { type: DataTypes.DECIMAL(5, 2), allowNull: false },
 });
